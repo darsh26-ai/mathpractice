@@ -9,36 +9,26 @@
 
 <header>
     <h1>Math Practice Test</h1>
-    <button id="themeButton">Dark Mode</button>
 </header>
 
 <div class="container">
 
-    <!-- HOME PAGE (Grade Selection) -->
-    <section id="homePage">
+    <!-- GRADE PAGE -->
+    <section id="gradeSection">
         <h2>Select Grade</h2>
         <div id="gradeGrid"></div>
     </section>
 
     <!-- TOPIC PAGE -->
-    <section id="topicPage" class="hidden">
+    <section id="topicSection" class="hidden">
         <h2>Select Topic</h2>
         <div id="topicGrid"></div>
         <button class="backButton">Back</button>
     </section>
 
     <!-- SETTINGS PAGE -->
-    <section id="settingsPage" class="hidden">
+    <section id="settingsSection" class="hidden">
         <h2>Practice Settings</h2>
-
-        <label>
-            Difficulty:
-            <select id="difficulty">
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-            </select>
-        </label>
 
         <label>
             Question Type:
@@ -58,28 +48,15 @@
             </select>
         </label>
 
-        <label>
-            Timer (optional):
-            <select id="timer">
-                <option value="0">No Timer</option>
-                <option value="30">30 seconds</option>
-                <option value="60">1 minute</option>
-                <option value="120">2 minutes</option>
-            </select>
-        </label>
-
         <button id="startPracticeBtn">Start Practice</button>
         <button class="backButton">Back</button>
     </section>
 
-    <!-- QUIZ PAGE -->
-    <section id="quizPage" class="hidden">
+    <!-- PRACTICE PAGE -->
+    <section id="practiceSection" class="hidden">
         <h2 id="practiceTitle"></h2>
 
-        <div id="clockContainer"></div>
-
         <div id="questionBox"></div>
-
         <div id="optionsBox"></div>
 
         <input id="typedAnswer" class="hidden" placeholder="Type your answer">
@@ -88,16 +65,6 @@
 
         <button id="nextBtn">Next</button>
         <button class="backButton">Back</button>
-    </section>
-
-    <!-- RESULTS PAGE -->
-    <section id="resultsPage" class="hidden">
-        <h2>Quiz Results</h2>
-
-        <div id="scoreBox"></div>
-
-        <button id="restartButton">Restart Quiz</button>
-        <button id="homeButton">Home</button>
     </section>
 
 </div>
