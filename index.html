@@ -1,1 +1,78 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Practice Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Math Practice Test</h1>
+</header>
+
+<div class="container">
+
+    <!-- Grade Selection -->
+    <section id="gradeSection">
+        <h2>Select Grade</h2>
+        <div id="gradeGrid"></div>
+    </section>
+
+    <!-- Topic Selection -->
+    <section id="topicSection" class="hidden">
+        <h2>Select Topic</h2>
+        <div id="topicGrid"></div>
+        <button class="backButton">Back</button>
+    </section>
+
+    <!-- Settings -->
+    <section id="settingsSection" class="hidden">
+        <h2>Practice Settings</h2>
+
+        <label>
+            Question Type:
+            <select id="questionType">
+                <option value="mcq">Multiple Choice</option>
+                <option value="typed">Type the Answer</option>
+            </select>
+        </label>
+
+        <label>
+            Number of Questions:
+            <select id="questionCount">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+        </label>
+
+        <button id="startPracticeBtn">Start Practice</button>
+        <button class="backButton">Back</button>
+    </section>
+
+    <!-- Practice Page -->
+    <section id="practiceSection" class="hidden">
+        <h2 id="practiceTitle"></h2>
+
+        <div id="questionBox"></div>
+
+        <div id="optionsBox"></div>
+
+        <input id="typedAnswer" class="hidden" placeholder="Type your answer">
+
+        <div id="resultBox"></div>
+
+        <button id="nextBtn">Next</button>
+        <button class="backButton">Back</button>
+    </section>
+
+</div>
+
+<script src="app.js"></script>
+<script src="generator.js"></script>
+<script src="practice.js"></script>
+
+</body>
+</html>
