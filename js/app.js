@@ -1,7 +1,7 @@
 /*
 =================================================
 Math Learning Center
-app.js (Clean Version)
+app.js (Corrected Version)
 =================================================
 */
 
@@ -19,11 +19,11 @@ let selectedGrade = null;
 let selectedTopic = null;
 
 /* ---------------------------------------------
-   Show Page
+   Show Page (Matches Your HTML IDs)
 --------------------------------------------- */
-function show(pageId) {
+function show(sectionId) {
     document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
-    const page = document.getElementById(pageId);
+    const page = document.getElementById(sectionId);
     if (page) page.classList.remove("hidden");
 }
 
@@ -34,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadGrades();
     setupBackButtons();
     setupStartButton();
-    show("homePage");   // Show grade page first
+
+    // FIX: Show gradeSection first
+    show("gradeSection");
 });
 
 /* ---------------------------------------------
@@ -61,7 +63,9 @@ function loadGrades() {
 function selectGrade(g) {
     selectedGrade = g;
     loadTopics(g);
-    show("topicPage");
+
+    // FIX: Show topicSection (your HTML ID)
+    show("topicSection");
 }
 
 /* ---------------------------------------------
@@ -79,7 +83,9 @@ function loadTopics(g) {
         card.innerHTML = `<h3>${topic}</h3>`;
         card.onclick = () => {
             selectedTopic = topic;
-            show("settingsPage");
+
+            // FIX: Show settingsSection (your HTML ID)
+            show("settingsSection");
         };
         grid.appendChild(card);
     });
@@ -90,7 +96,7 @@ function loadTopics(g) {
 --------------------------------------------- */
 function setupBackButtons() {
     document.querySelectorAll(".backButton").forEach(btn => {
-        btn.onclick = () => show("homePage");
+        btn.onclick = () => show("gradeSection");
     });
 }
 
@@ -110,10 +116,10 @@ function setupStartButton() {
         const settings = {
             grade: selectedGrade,
             topic: selectedTopic,
-            difficulty: document.getElementById("difficulty").value,
-            questionType: document.getElementById("questionType").value,
-            questionCount: Number(document.getElementById("questionCount").value),
-            timer: Number(document.getElementById("timer").value)
+            difficulty: document.getElementById("difficulty")?.value || "Easy",
+            questionType: document.getElementById("questionType")?.value || "mcq",
+            questionCount: Number(document.getElementById("questionCount")?.value || 10),
+            timer: Number(document.getElementById("timer")?.value || 0)
         };
 
         window.currentQuizSettings = settings;
@@ -122,6 +128,7 @@ function setupStartButton() {
             startPractice(settings);
         }
 
-        show("quizPage");
+        // FIX: Show practiceSection (your HTML ID)
+        show("practiceSection");
     };
 }
